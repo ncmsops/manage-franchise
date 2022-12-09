@@ -18,6 +18,7 @@ on:
           - TEST_CMS_2
           - DEV_FUSION
           - AARGO
+          - KURRENT
       cpID:  
         description: cpID
         default: ''
