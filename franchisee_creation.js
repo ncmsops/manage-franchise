@@ -57,7 +57,7 @@ const assetChanges=async (hosturl,cpName, franchiseData, ChargeStationID)=>{
     }
     // update franchise name and charge station id chargestation_table
     queryOps= `UPDATE assetdb.chargestation_table SET FranchaiseName=? WHERE ChargeStationID=?`
-    queryData= [franchiseName,1];
+    queryData= [franchiseName,ChargeStationID];
     const chargestationTableMapping=await connectAndExecQuery(queryOps, queryData, mysqlObj)
     if(chargestationTableMapping.error){
         return {error:chargestationTableMapping.error}
