@@ -130,11 +130,21 @@ const findFranchiseName=(franchiseUrl)=>{
     return franchiseUrlData
 }
 
-
+// Start Main
 var arguments = process.argv
 const environment=arguments[2];
 const cpName=arguments[3];
 const franchiseName=arguments[4];
 const ChargeStationID=arguments[5];
 const adminEmail=arguments[6];
-franchiseCreation(environment, cpName, franchiseName, ChargeStationID, adminEmail)
+
+// Validate whether CPO name there in the frachiseName parameter or not
+// If not fail the action
+const regexp = "^\/[a-zA-Z0-9]+\/[a-zA-Z0-9]+\/$";
+if (!franchiseName.match(regexp)) {
+    console.log('The franchieName parameter is invalid. It must be in the format /CPO/FranceName/');
+    process.exit(1);
+}
+
+franchiseCreation(environment, cpName, franchiseName, ChargeStationID, adminEmail);
+
